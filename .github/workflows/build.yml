@@ -1,9 +1,12 @@
-name: Build Windows EXE
+name: Build and Release Windows EXE
 
 on:
   push:
     tags:
-      - 'v*'   # runs on version tags like v1.0.0
+      - 'v*'
+
+permissions:
+  contents: write   # 👈 allows creating releases and uploading assets
 
 jobs:
   build:
