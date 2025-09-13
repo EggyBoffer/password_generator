@@ -26,8 +26,9 @@ jobs:
         run: |
           python -m PyInstaller --onefile --windowed password_generator.py
 
-      - name: Upload artifact
-        uses: actions/upload-artifact@v4
+      - name: Upload Release Asset
+        uses: softprops/action-gh-release@v2
         with:
-          name: password-generator
-          path: dist/password_generator.exe
+          files: dist/password_generator.exe
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
